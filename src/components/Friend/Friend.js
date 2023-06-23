@@ -2,13 +2,19 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 const Friend = (props) => {
-    const { name, email, id} = props.friend;
-    const history = useHistory();
+    //const { name, email, id} = props.friend;
+    const {name,email,id}=props.friend;
+    // const history = useHistory();
     
-    const handleClick = (friendId) => {
-        const url = `/friend/${friendId}`;
-        history.push(url);
+    // const handleClick = (friendId) => {
+    //     const url = `/friend/${friendId}`;
+    //     history.push(url);
+    const history=useHistory();
+    const handleClick=(friendId)=>{
+        const url=`/friend/${friendId}`;
+        history.push(url)
     }
+    
     const friendStyle = { 
         border: '1px solid purple',
         margin: '20px',
@@ -18,9 +24,14 @@ const Friend = (props) => {
     return (
         <div style={friendStyle}>
             <h2>Name: {name}</h2>
+           
             <p>email: {email}</p>
-            <Link to={`/friend/${id}`}>show detail of {id}</Link>
-            <button onClick={() => handleClick(id)}>click me</button>
+           
+            {/* <Link to={`/friend/${id}`}>Show Detail{id}</Link> */}
+            <button onClick={()=>handleClick(id)}>click me</button>
+
+            {/* <Link to={`/friend/${id}`}>Show Detail{id}</Link>
+            <button onClick={() => handleClick(id)}>click me</button> */}
         </div>
     );
 };
